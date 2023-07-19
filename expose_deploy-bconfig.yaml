@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: backend-rampup-final-service
+spec:
+    type: ClusterIP
+    selector:
+        app: backend-rampup-final
+    ports:
+        - protocol: TCP
+          port: 8080
+          targetPort: 8080

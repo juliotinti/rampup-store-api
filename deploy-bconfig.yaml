@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: backend-rampup-final
+spec:
+    replicas: 1
+    selector:
+        matchLabels:
+            app: backend-rampup-final
+    template:
+        metadata:
+            labels:
+                app: backend-rampup-final
+        spec:
+            containers:
+                - name: backend-rampup-final
+                  image: backend-rampup-final:latest
+                  imagePullPolicy: Never
+                  ports:
+                      - containerPort: 8080
+                  env:
+                      - name: DBHOST
+                        value: db-rampup
+                  command: ["/bin/bash", "-c", "--"]
+                  args: ["while true; do sleep 30; done;"]
