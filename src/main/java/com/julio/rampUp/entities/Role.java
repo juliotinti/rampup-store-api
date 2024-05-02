@@ -19,7 +19,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table(name = "role_tb")
-@SQLDelete(sql = "UPDATE role_tb SET deleted=1 WHERE id =?")
+@SQLDelete(sql = "UPDATE role_tb SET deleted=true WHERE id =?")
 @Where(clause = "deleted=false")
 public class Role implements Serializable {
     private static final long serialVersionUID = 1L;

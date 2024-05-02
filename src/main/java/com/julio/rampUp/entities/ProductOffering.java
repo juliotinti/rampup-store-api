@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table(name = "product_offering_tb")
-@SQLDelete(sql = "UPDATE product_offering_tb SET sell_Indicator=0 WHERE id =?")
+@SQLDelete(sql = "UPDATE product_offering_tb SET sell_Indicator=false WHERE id =?")
 public class ProductOffering implements Serializable {
     private static final long serialVersionUID = 1L;
 

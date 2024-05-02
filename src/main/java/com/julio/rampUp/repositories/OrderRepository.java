@@ -12,13 +12,13 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     @Override
     Page<Order> findAll(Pageable pageable);
 
-    @Query("SELECT o FROM Order o WHERE o.customer.id = ?1 AND o.deleted=0 ORDER BY o.id DESC")
+    @Query("SELECT o FROM Order o WHERE o.customer.id = ?1 AND o.deleted=false ORDER BY o.id DESC")
     Page<Order> findAllOrdersByCustomerId(Pageable pageable, Integer id);
 
-    @Query("SELECT count(*) FROM Order o WHERE o.deleted=0")
+    @Query("SELECT count(*) FROM Order o WHERE o.deleted=false")
     Integer quantityOfOrders();
 
-    @Query("SELECT count(*) FROM Order o WHERE o.deleted=1")
+    @Query("SELECT count(*) FROM Order o WHERE o.deleted=true")
     Integer quantityOfCancelledOrders();
 
 }

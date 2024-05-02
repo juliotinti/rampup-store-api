@@ -27,7 +27,7 @@ import com.fasterxml.jackson.annotation.JsonView;
 
 @Entity
 @Table(name = "user_tb")
-@SQLDelete(sql = "UPDATE user_tb SET deleted=1, password='null' WHERE id=?")
+@SQLDelete(sql = "UPDATE user_tb SET deleted=true, password='null' WHERE id=?")
 @Where(clause = "deleted=false")
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;

@@ -13,6 +13,6 @@ public interface ProductOfferingRepository extends JpaRepository<ProductOffering
     @Override
     Page<ProductOffering> findAll(Pageable pageable);
 
-    @Query(value = "SELECT COUNT(*) FROM product_offering_tb t WHERE t.sell_Indicator=1", nativeQuery = true)
+    @Query(value = "SELECT COUNT(*) FROM product_offering_tb t WHERE t.sell_Indicator=true", nativeQuery = true)
     List<Object[]> productToSale();
 }
